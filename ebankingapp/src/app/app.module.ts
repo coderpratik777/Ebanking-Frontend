@@ -28,11 +28,13 @@ const routes:Routes=[
   declarations: [
     AppComponent,
     DashboardComponent,
+    RegisterComponent
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

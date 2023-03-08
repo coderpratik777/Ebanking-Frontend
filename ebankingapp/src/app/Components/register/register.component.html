@@ -1,1 +1,98 @@
-<p>register works!</p>
+<form class="container" #myForm="ngForm" (ngSubmit)="myForm.valid && register()">
+  <div class="heading">Register for Internet Banking</div>
+  <div class="form-group">
+    <label for="accountnumber">Account number</label
+    >
+      <input
+        type="number"
+        class="form-control"
+        name="accountnumber"
+        placeholder="Enter account number"
+        [(ngModel)]="userdata.accountNumber"
+        #accountNumber="ngModel"
+      />
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      name="password"
+      [(ngModel)]="userdata.password"
+      #password="ngModel"
+      minlength="8"
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%?&])[A-Za-z\d$@$!%?&]{8,}$"
+      required
+    />
+    <div
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+      class="alert"
+    >
+      <div class="alert alert-danger" *ngIf="password.errors?.['required']">
+        Password is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="password.errors?.['minlength']">
+        Password must be at least 8 characters long.
+      </div>
+      <div class="alert alert-danger" *ngIf="password.errors?.['pattern']">
+        Password must contain 1 uppercase character,numbers and special
+        characters.
+      </div>
+    </div>
+    <div *ngIf="password.valid">
+      <div class="alert alert-success">You are going correct...😍</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmpassword">Confirm Password</label>
+    <input
+      type="password"
+      class="form-control"
+      [(ngModel)]="userdata.confirmPassword"
+      #confirmpassword="ngModel"
+      name="confirmpassword"
+      required
+    />
+    </div>
+    <div *ngIf="confirmpassword.touched || confirmpassword.dirty" class="alert">
+        <div class="alert alert-danger " *ngIf="confirmpassword.errors?.['required']">
+            Confirm Password is required
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="transactionpin">Set Transaction Pin</label>
+          <input
+            type="number"
+            class="form-control"
+            name="transactionpin"
+            placeholder="Enter transaction pin"
+            [(ngModel)]="userdata.transactionPin"
+            #transactionpin="ngModel"
+            minlength="4"
+            maxlength="4"
+          />
+      </div>
+      <div *ngIf="transactionpin.dirty || transactionpin.touched" class="alert">
+        <div class="alert alert-danger" *ngIf="transactionpin.errors?.['minlength'] && transactionpin.errors?.['maxlength']">
+            Pin should contain 4 digits
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmtransactionpin">Confirm Transaction Pin</label>
+          <input
+            type="number"
+            class="form-control"
+            name="confirmtransactionpin"
+            placeholder="Enter transaction pin"
+            [(ngModel)]="userdata.confirmTransactionPin"
+            #transactionPin="ngModel"
+            minlength="4"
+          />
+      </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+    <div *ngIf="myForm.submitted && myForm.invalid" class="alert alert-danger">
+      Please fill correct details
+    </div>
+
+</form>

@@ -7,4 +7,24 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
+  userdata:RegisterForEbanking=new RegisterForEbanking();
+
+  register(){
+    console.log("register clicked")
+    console.log(this.userdata);
+  }
+
+ 
+ 
+}
+
+export class RegisterForEbanking{
+
+  accountNumber!:number;
+  password!:string;
+  username!:string;
+  confirmPassword!:string;
+  transactionPin!:number;
+  confirmTransactionPin!:number;
+
 }
