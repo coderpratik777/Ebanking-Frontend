@@ -4,13 +4,17 @@
     <label for="accountnumber">Account number</label
     >
       <input
-        type="number"
+        type="text"
         class="form-control"
         name="accountnumber"
         placeholder="Enter account number"
         [(ngModel)]="userdata.accountNumber"
         #accountNumber="ngModel"
+        required
       />
+  </div>
+  <div *ngIf="myForm.submitted">
+
   </div>
 
   <div class="form-group">
@@ -55,7 +59,7 @@
       required
     />
     </div>
-    <div *ngIf="confirmpassword.touched || confirmpassword.dirty" class="alert">
+    <div *ngIf="confirmpassword.invalid &&(confirmpassword.touched || confirmpassword.dirty)" class="alert">
         <div class="alert alert-danger " *ngIf="confirmpassword.errors?.['required']">
             Confirm Password is required
         </div>
@@ -71,11 +75,15 @@
             #transactionpin="ngModel"
             minlength="4"
             maxlength="4"
+            required
           />
       </div>
-      <div *ngIf="transactionpin.dirty || transactionpin.touched" class="alert">
-        <div class="alert alert-danger" *ngIf="transactionpin.errors?.['minlength'] && transactionpin.errors?.['maxlength']">
+      <div *ngIf="transactionpin.invalid && (transactionpin.dirty || transactionpin.touched)" class="alert">
+        <div class="alert alert-danger" *ngIf="transactionpin.errors?.['minlength']">
             Pin should contain 4 digits
+        </div>
+        <div class="alert alert-danger" *ngIf="transactionpin.errors?.['required']">
+            Pin is required!
         </div>
       </div>
       <div class="form-group">
