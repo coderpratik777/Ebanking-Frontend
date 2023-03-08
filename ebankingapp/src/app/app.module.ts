@@ -13,14 +13,17 @@ import { RegisterComponent } from './Components/register/register.component';
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './Components/home/home.component';
+import { ForgotpasswordComponent } from './Components/forgotpassword/forgotpassword.component';
+import { AccountstatementComponent } from './Components/accountstatement/accountstatement.component';
 
 
 const routes:Routes=[
   {path:'dashboard',component:DashboardComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'dashboard',component:DashboardComponent}
-  
+  {path:'dashboard',component:DashboardComponent},
+  {path:'forgot password',component:ForgotpasswordComponent}
 ]
 
 
@@ -28,14 +31,19 @@ const routes:Routes=[
   declarations: [
     AppComponent,
     DashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent,
+    HomeComponent,
+    ForgotpasswordComponent,
+   AccountstatementComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
