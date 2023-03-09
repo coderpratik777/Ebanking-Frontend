@@ -1,12 +1,22 @@
 
-
-<h1>Welcome to dashboard</h1>
-<div>
-    <div>
-        <a class="navbar-brand" routerLink="">Home</a>
-        <a class="navbar-brand" routerLink="/forgot password">Forgot Password</a>
-        <a class="navbar-brand" routerLink="/newpassword">Create New Password</a>
-        <a class="navbar-brand" routerLink="/account statement">Account Statement</a>
-       
-    </div>
+<div *ngIf="status=='true'">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" routerLink="/home">EBanking</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a routerLink="/forgot password">Forgot password</a></li>
+            <li><a routerLink="/newpassword">Create new Password</a></li>
+            <li><a routerLink="/account statement">Account Statement</a></li>
+            <li><a routerLink="/fundtransfer">Fund Transfer</a></li>
+            <li><a routerLink="/userprofile">User profile</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div>
+        <div class="container1">
+            Welcome to ebanking services By dena Bank!
+        </div>
+      </div>
 </div>

@@ -10,4 +10,8 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
 
+  status:any=localStorage.getItem("Useractive");
+  
+
+
 }

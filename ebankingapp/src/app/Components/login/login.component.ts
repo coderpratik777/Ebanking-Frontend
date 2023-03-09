@@ -17,8 +17,9 @@ export class LoginComponent {
   customerid!:Number;
 
   username1!:string;
+
   
-  constructor (private http:HttpClient){
+  constructor (private router:Router,private http:HttpClient){
 
   }
 
@@ -35,8 +36,14 @@ export class LoginComponent {
         console.log(Response);
       })
 
-      localStorage.setItem('customerid',this.logindetail.customerid);
-      localStorage.setItem('username1',this.username);
+      if(this.logindetail.status==true){
+        localStorage.setItem('customerid',this.logindetail.customerid);
+        localStorage.setItem('username1',this.username);
+       localStorage.setItem("Useractive","true");
+       this.router.navigate(['/dashboard']);
+       
+
+      }
     //  let cust:Number=localStorage.getItem('customerid');
     console.log(localStorage.getItem('customerid'));
 
