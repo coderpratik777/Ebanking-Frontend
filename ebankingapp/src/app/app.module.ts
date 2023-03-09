@@ -71,6 +71,7 @@ const routes:Routes=[
    NefttransferComponent,
    ImpstransferComponent,
    RtgstransferComponent,
+   NavbarComponent,
 
    
    

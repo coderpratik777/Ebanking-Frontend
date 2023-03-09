@@ -1,0 +1,20 @@
+.container1{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://media.istockphoto.com/id/1329929660/photo/smiling-young-woman-satisfied-with-online-payment-mobile-service.jpg?b=1&s=170667a&w=0&k=20&c=UlaLrts20MwEFIMAkZ5QBqjENCNTOHwqHHK_77crmRg=");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top:183px ;
+}
+
+.container{
+    margin-top: 500px;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 30px;
+    box-shadow: 2px 2px 8px black;
+    background-color: rgb(190, 183, 183);
+    border-radius: 9px;
+    color: white;
+}
