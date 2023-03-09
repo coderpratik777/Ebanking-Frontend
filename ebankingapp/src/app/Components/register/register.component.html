@@ -1,17 +1,62 @@
-<form class="container" #myForm="ngForm" (ngSubmit)="myForm.valid && register()">
+<form
+  class="container"
+  #myForm="ngForm"
+  (ngSubmit)="myForm.valid && register()"
+>
   <div class="heading">Register for Internet Banking</div>
   <div class="form-group">
-    <label for="accountnumber">Account number</label
-    >
-      <input
-        type="number"
+    <label for="accountnumber">Account number</label>
+    <input
+      type="text"
+      class="form-control"
+      name="accountnumber"
+      placeholder="Enter account number"
+      [(ngModel)]="userdata.accountNumber"
+      #accountNumber="ngModel"
+      required
+    />
+    <button class="btn btn-primary" (click)="verifyAccount()">Get OTP</button>
+    <div *ngIf="otpResponse.status == true">
+      <div>
+        <input type="text"
         class="form-control"
-        name="accountnumber"
-        placeholder="Enter account number"
-        [(ngModel)]="userdata.accountNumber"
-        #accountNumber="ngModel"
-      />
+        name="otp"
+        placeholder="Enter the OTP" [(ngModel)]="userdata.otp"
+        required />
+      </div>
+      <div class="alert alert-success">Otp send to registered email !</div>
+    </div>
+    <div *ngIf="otpResponse.status == false && otpResponse.messageIfany">
+      <div class="alert alert-danger">Please Enter valid Account Number</div>
+    </div>
   </div>
+  <div
+    *ngIf="
+      accountNumber.invalid && (accountNumber.touched || accountNumber.dirty) && otpResponse.status==false
+    "
+  >
+    <div *ngIf="accountNumber.errors?.['required']" class="alert alert-danger">
+      Account Number is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="accountnumber">User Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="username"
+      placeholder="Enter username number"
+      [(ngModel)]="userdata.username"
+      #username="ngModel"
+      required
+    />
+    <div *ngIf="myForm.submitted">
+      <div *ngIf="username.invalid">
+        <div *ngIf="username.errors?.['required']" class="alert alert-danger">Enter a username</div>
+      </div>
+
+    </div>
+ </div>
 
   <div class="form-group">
     <label for="password">Password</label>
@@ -54,45 +99,66 @@
       name="confirmpassword"
       required
     />
-    </div>
-    <div *ngIf="confirmpassword.touched || confirmpassword.dirty" class="alert">
-        <div class="alert alert-danger " *ngIf="confirmpassword.errors?.['required']">
-            Confirm Password is required
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="transactionpin">Set Transaction Pin</label>
-          <input
-            type="number"
-            class="form-control"
-            name="transactionpin"
-            placeholder="Enter transaction pin"
-            [(ngModel)]="userdata.transactionPin"
-            #transactionpin="ngModel"
-            minlength="4"
-            maxlength="4"
-          />
+  </div>
+  <div *ngIf="myForm.submitted">
+    <div
+      *ngIf="
+        confirmpassword.invalid &&
+        (confirmpassword.touched || confirmpassword.dirty)
+      "
+      class="alert"
+    >
+      <div
+        class="alert alert-danger"
+        *ngIf="confirmpassword.errors?.['required']"
+      >
+        Confirm Password is required
       </div>
-      <div *ngIf="transactionpin.dirty || transactionpin.touched" class="alert">
-        <div class="alert alert-danger" *ngIf="transactionpin.errors?.['minlength'] && transactionpin.errors?.['maxlength']">
-            Pin should contain 4 digits
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="confirmtransactionpin">Confirm Transaction Pin</label>
-          <input
-            type="number"
-            class="form-control"
-            name="confirmtransactionpin"
-            placeholder="Enter transaction pin"
-            [(ngModel)]="userdata.confirmTransactionPin"
-            #transactionPin="ngModel"
-            minlength="4"
-          />
-      </div>
-    <button type="submit" class="btn btn-primary">Register</button>
-    <div *ngIf="myForm.submitted && myForm.invalid" class="alert alert-danger">
-      Please fill correct details
     </div>
-
+  </div>
+  <div class="form-group">
+    <label for="transactionpin">Set Transaction Pin</label>
+    <input
+      type="password"
+      class="form-control"
+      name="transactionpin"
+      placeholder="Enter transaction pin"
+      [(ngModel)]="userdata.transactionPin"
+      #transactionpin="ngModel"
+      maxlength="4"
+      minlength="4"
+      required
+    />
+  </div>
+  <div
+    *ngIf="
+      transactionpin.invalid && (transactionpin.dirty || transactionpin.touched)
+    "
+  >
+    <div
+      class="alert alert-danger"
+      *ngIf="transactionpin.errors?.['minlength']"
+    >
+      Pin should contain 4 digits
+    </div>
+    <div class="alert alert-danger" *ngIf="transactionpin.errors?.['required']">
+      Pin is required!
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmtransactionpin">Confirm Transaction Pin</label>
+    <input
+      type="text"
+      class="form-control"
+      name="confirmtransactionpin"
+      placeholder="Enter transaction pin"
+      [(ngModel)]="userdata.confirmTransactionPin"
+      #transactionPin="ngModel"
+      minlength="4"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+  <div *ngIf="myForm.submitted && myForm.invalid" class="alert alert-danger">
+    Please fill correct details
+  </div>
 </form>

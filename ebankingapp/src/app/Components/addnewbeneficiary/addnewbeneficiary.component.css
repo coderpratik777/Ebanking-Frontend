@@ -1,0 +1,10 @@
+.container{
+    width: 600px;
+    margin: auto;
+}
+.heading{
+    font-weight: 500;
+    margin-bottom: 30px;
+    font-size: 20px;
+    margin-left: 30%;   
+}
