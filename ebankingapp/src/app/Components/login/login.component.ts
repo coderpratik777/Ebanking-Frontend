@@ -31,6 +31,7 @@ export class LoginComponent {
         this.logindetail=Response;
 
       })
+      sessionStorage.setItem('accountnumber:number','logindetail.accountnum');
   
   }
 

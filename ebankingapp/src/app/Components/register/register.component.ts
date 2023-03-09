@@ -56,4 +56,5 @@ export class RegisterForEbanking{
   transactionPin!:number;
   confirmTransactionPin!:number;
 
+
 }

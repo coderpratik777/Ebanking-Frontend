@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Components/home/home.component';
 import { ForgotpasswordComponent } from './Components/forgotpassword/forgotpassword.component';
 import { AccountstatementComponent } from './Components/accountstatement/accountstatement.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 import { CreatenewaccountComponent } from './Components/createnewaccount/createnewaccount.component';
 import { FundtransferComponent } from './Components/fundtransfer/fundtransfer.component';
 import { TransfermoneyComponent } from './Components/transfermoney/transfermoney.component';
@@ -30,6 +31,8 @@ const routes:Routes=[
   {path:'register',component:RegisterComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'forgot password',component:ForgotpasswordComponent},
+  {path:'account statement',component:AccountstatementComponent},
+  
   {path:'openaccount',component:CreatenewaccountComponent},
   {path:'addbeneficiary',component:AddnewbeneficiaryComponent},
   {path:'fundtransfer',component:FundtransferComponent},
@@ -53,6 +56,7 @@ const routes:Routes=[
    NefttransferComponent,
    ImpstransferComponent,
    RtgstransferComponent,
+   
    
   ],
   imports: [
