@@ -26,12 +26,12 @@ import { FundtransferComponent } from './Components/fundtransfer/fundtransfer.co
 import { ImpstransferComponent } from './Components/impstransfer/impstransfer.component';
 
 import { NefttransferComponent } from './Components/nefttransfer/nefttransfer.component';
-
 import { RtgstransferComponent } from './Components/rtgstransfer/rtgstransfer.component';
 
 
 
 const routes:Routes=[
+  {path:'home',component:HomeComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
