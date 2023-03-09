@@ -1,0 +1,60 @@
+<form (ngSubmit)="submit()" class="container">
+  <div class="heading">Create new Account</div>
+  <div class="form-group">
+    <label for="Firstname">First Name</label>
+    <input class="form-control" type="text" name="Firstname" [(ngModel)]="customerData.firstName">
+  </div>
+  <div class="form-group">
+    <label for="Lastname">Last Name</label>
+    <input class="form-control" type="text" name="Lastname"[(ngModel)]="customerData.lastName" />
+  </div>
+   <div class="form-group">
+    <label for="fathername">Father's Name</label>
+    <input class="form-control" type="text" name="fathername"[(ngModel)]="customerData.fatherName" />
+  </div>
+  <div class="form-group">
+    <label for="mobileNumber">Mobile number</label>
+    <input class="form-control" type="text" name="mobileNumber" [(ngModel)]="customerData.mobileNumber"/>
+  </div>
+  <div class="form-group">
+    <label for="addharCardNumber">addhar card number</label>
+    <input class="form-control" type="text" name="addharCardNumber"[(ngModel)]="customerData.addharCardNumber"/>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input class="form-control" type="text" name="email" [(ngModel)]="customerData.email"/>
+  </div>
+  <div class="form-group">
+    <label for="incomeSource">Source Of Income</label>
+    <input class="form-control" type="text" name="incomeSource" [(ngModel)]="customerData.sourceOfIncome"/>
+  </div>
+  <div class="form-group">
+    <label for="income">Annual income</label>
+    <input class="form-control" type="text" name="income" [(ngModel)]="customerData.grossAnnualIncome"/>
+  </div>
+  <div class="form-group">
+    <label for="dob">DateOfBirth</label>
+    <input class="form-control" type="text" name="dob" [(ngModel)]="customerData.datOfBirth"/>
+  </div>
+  <div class="form-group">
+    <label for="address1">Address line 1</label>
+    <input class="form-control" type="text" name="address2" [(ngModel)]="customerData.address.addressLine1" />
+  </div>
+  <div class="form-group">
+    <label for="address2">Address line 2</label>
+    <input class="form-control" type="text" name="address2" [(ngModel)]="customerData.address.addressLine2"/>
+  </div>
+  <div class="form-group">
+    <label for="landamark">Landmark</label>
+    <input class="form-control" type="text" name="landmark" [(ngModel)]="customerData.address.landmark" />
+  </div>
+  <div class="form-group">
+    <label for="city">City</label>
+    <input class="form-control" type="text" name="city" [(ngModel)]="customerData.address.city"/>
+  </div>
+  <div class="form-group">
+    <label for="pincode">Pincode</label>
+    <input class="form-control" type="text" name="pincode" [(ngModel)]="customerData.address.pincode" />
+  </div>
+  <button type="submit" class="btn btn-primary"> Create account </button>
+</form>
