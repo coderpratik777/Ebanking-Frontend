@@ -36,8 +36,8 @@ const routes:Routes=[
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'dashboard',component:DashboardComponent},
-  {path:'forgot password',component:ForgotpasswordComponent},
-  {path:'account statement',component:AccountstatementComponent},
+  {path:'forgotspassword',component:ForgotpasswordComponent},
+  {path:'accountstatement',component:AccountstatementComponent},
   
   {path:'openaccount',component:CreatenewaccountComponent},
   {path:'addbeneficiary',component:AddnewbeneficiaryComponent},
@@ -47,7 +47,7 @@ const routes:Routes=[
 
   {path:'fundtransfer',component:FundtransferComponent},
   {path:'transfermoney',component:TransfermoneyComponent},
-  {path:'impstransfer',component:ImpstransferComponent}
+  {path:'impstransfer',component:ImpstransferComponent},
 
 ]
 

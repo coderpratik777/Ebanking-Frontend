@@ -10,8 +10,6 @@ export class UserprofileComponent implements OnInit{
 
   // customerid!:Number;
   addhar!:Number;
-  DOB!:string;  
-       todayString : string = new Date().toDateString();
 
   firstname!:String;
   fathername!:String;
@@ -24,16 +22,12 @@ export class UserprofileComponent implements OnInit{
   }
 
   customerid=localStorage.getItem('customerid');
-  show(){
-   
-  }
+  
 
   ngOnInit(): void {
     console.log(this.customerid);
     this.http.get(`http://localhost:8080/userprofile?customerid=${this.customerid}`).subscribe((Response)=>{
       this.customer=Response;
-
-      
       console.log(Response);
     })
   }
