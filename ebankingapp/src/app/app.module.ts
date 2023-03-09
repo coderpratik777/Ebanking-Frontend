@@ -18,6 +18,8 @@ import { ForgotpasswordComponent } from './Components/forgotpassword/forgotpassw
 import { AccountstatementComponent } from './Components/accountstatement/accountstatement.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { CreatenewaccountComponent } from './Components/createnewaccount/createnewaccount.component';
+import { UserprofileComponent } from './Components/userprofile/userprofile.component';
+import { NewpasswordComponent } from './Components/newpassword/newpassword.component';
 
 
 const routes:Routes=[
@@ -29,7 +31,9 @@ const routes:Routes=[
   {path:'account statement',component:AccountstatementComponent},
   
   {path:'openaccount',component:CreatenewaccountComponent},
-  {path:'addbeneficiary',component:AddnewbeneficiaryComponent}
+  {path:'addbeneficiary',component:AddnewbeneficiaryComponent},
+  {path:'userprofile',component:UserprofileComponent},
+  {path:'newpassword',component:NewpasswordComponent}
 ]
 
 
@@ -43,6 +47,8 @@ const routes:Routes=[
     ForgotpasswordComponent,
    AccountstatementComponent,
    CreatenewaccountComponent,
+   UserprofileComponent,
+   NewpasswordComponent,
    
    
   ],
