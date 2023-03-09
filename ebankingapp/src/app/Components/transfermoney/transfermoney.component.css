@@ -1,0 +1,24 @@
+.main1{
+    width: 600px;
+    margin: auto;
+    box-shadow: 1px 1px 7px black;
+    text-align: center;
+    padding: 20px;
+}
+h1{
+    font-size: 30px;
+}
+.main3 ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+li{
+    list-style: none;
+    padding: 8px;
+    background-color: rgb(100, 164, 224);
+    margin: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 90px;
+}
