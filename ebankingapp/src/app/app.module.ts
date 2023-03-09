@@ -17,6 +17,11 @@ import { HomeComponent } from './Components/home/home.component';
 import { ForgotpasswordComponent } from './Components/forgotpassword/forgotpassword.component';
 import { AccountstatementComponent } from './Components/accountstatement/accountstatement.component';
 import { CreatenewaccountComponent } from './Components/createnewaccount/createnewaccount.component';
+import { FundtransferComponent } from './Components/fundtransfer/fundtransfer.component';
+import { TransfermoneyComponent } from './Components/transfermoney/transfermoney.component';
+import { NefttransferComponent } from './Components/nefttransfer/nefttransfer.component';
+import { ImpstransferComponent } from './Components/impstransfer/impstransfer.component';
+import { RtgstransferComponent } from './Components/rtgstransfer/rtgstransfer.component';
 
 
 const routes:Routes=[
@@ -26,7 +31,10 @@ const routes:Routes=[
   {path:'dashboard',component:DashboardComponent},
   {path:'forgot password',component:ForgotpasswordComponent},
   {path:'openaccount',component:CreatenewaccountComponent},
-  {path:'addbeneficiary',component:AddnewbeneficiaryComponent}
+  {path:'addbeneficiary',component:AddnewbeneficiaryComponent},
+  {path:'fundtransfer',component:FundtransferComponent},
+  {path:'transfermoney',component:TransfermoneyComponent},
+  {path:'impstransfer',component:ImpstransferComponent}
 ]
 
 
@@ -40,6 +48,11 @@ const routes:Routes=[
     ForgotpasswordComponent,
    AccountstatementComponent,
    CreatenewaccountComponent,
+   FundtransferComponent,
+   TransfermoneyComponent,
+   NefttransferComponent,
+   ImpstransferComponent,
+   RtgstransferComponent,
    
   ],
   imports: [
