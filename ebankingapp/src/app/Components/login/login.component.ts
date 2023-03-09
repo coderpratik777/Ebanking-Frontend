@@ -10,16 +10,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginComponent {
 
-  username!:String;
-  password!:String;
+  username!:string;
+  password!:string;
 
   logindetail!:any;
+  customerid!:Number;
 
+  username1!:string;
+  
   constructor (private http:HttpClient){
 
   }
 
-  login(logs:{email:string,password:string}){
+  login(logs:{username:string,password:string}){
     
 
     let json:any=JSON.stringify(logs);
@@ -29,10 +32,18 @@ export class LoginComponent {
       'http://localhost:8080/login',
       json,{headers:headers}).subscribe((Response)=>{
         this.logindetail=Response;
-
+        console.log(Response);
       })
-      sessionStorage.setItem('accountnumber:number','logindetail.accountnum');
-  
+
+      localStorage.setItem('customerid',this.logindetail.customerid);
+      localStorage.setItem('username1',this.username);
+    //  let cust:Number=localStorage.getItem('customerid');
+    console.log(localStorage.getItem('customerid'));
+
+    console.log(localStorage.getItem('username1'));
+      
   }
+
+  
 
 }

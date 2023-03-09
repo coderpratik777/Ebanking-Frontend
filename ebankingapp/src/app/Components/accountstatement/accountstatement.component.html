@@ -16,22 +16,11 @@
         <th scope="row">1</th>
         <td>{{account.accountNumber}}</td>
         <td>{{account.name}}</td>
-        <td>{{account.accounttype}}</td>
+        <td>{{account.accountType}}</td>
         <td>{{account.balance}}</td>
       </tr>
      
     </tbody>
   </table>
-</div>
-  <form (ngSubmit)="show()">
-   
-    
-   
-    <button type="submit" class="btn btn-success">Show </button>
-</form>
 
-<div>
-    <h3 *ngIf="account">
-        its {{account.accountNumber}} 
-    </h3>
-</div> 
+
