@@ -24,7 +24,7 @@ export class ImpstransferComponent {
   verifyTpin(){
     //check the tpin of the cusotmer from the account table 
     console.log(this.pinStatus)
-    if(this.tpin==1234){
+    if(this.tpin==this.accountData.transactionPin){
       this.pinStatus=3;
       this.verifypin=true;
       console.log("in pin");
@@ -37,7 +37,12 @@ export class ImpstransferComponent {
   }
 
   fetchAccount(){
-    //fetch account number by customerid from the localstorage
+    let cutomerId=localStorage.getItem("customerid");
+    let url=`http://localhost:8080/fetchaccount?customerid=${cutomerId}`;
+    this.http.get(url).subscribe((response)=>{
+      console.log(response);
+      this.accountData=response;
+    })
   }
   transaction(){
     
