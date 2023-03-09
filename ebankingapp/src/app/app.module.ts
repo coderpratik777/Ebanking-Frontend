@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Components/home/home.component';
 import { ForgotpasswordComponent } from './Components/forgotpassword/forgotpassword.component';
 import { AccountstatementComponent } from './Components/accountstatement/accountstatement.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+
 
 
 const routes:Routes=[
@@ -23,7 +25,9 @@ const routes:Routes=[
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'dashboard',component:DashboardComponent},
-  {path:'forgot password',component:ForgotpasswordComponent}
+  {path:'forgot password',component:ForgotpasswordComponent},
+  {path:'account statement',component:AccountstatementComponent},
+  
 ]
 
 
@@ -36,6 +40,7 @@ const routes:Routes=[
     HomeComponent,
     ForgotpasswordComponent,
    AccountstatementComponent,
+   
    
   ],
   imports: [

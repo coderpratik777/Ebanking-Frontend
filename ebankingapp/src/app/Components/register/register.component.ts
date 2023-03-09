@@ -9,6 +9,7 @@ export class RegisterComponent {
 
   userdata:RegisterForEbanking=new RegisterForEbanking();
 
+  
   register(){
     console.log("register clicked")
     console.log(this.userdata);
@@ -26,5 +27,6 @@ export class RegisterForEbanking{
   confirmPassword!:string;
   transactionPin!:number;
   confirmTransactionPin!:number;
+
 
 }
