@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 
 
 @Component({
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './impstransfer.component.html',
   styleUrls: ['./impstransfer.component.css']
 })
-export class ImpstransferComponent {
+export class ImpstransferComponent implements OnInit{
 
   transferData:ImpsTransferData=new ImpsTransferData();
   pinStatus:number=1;
@@ -15,6 +15,7 @@ export class ImpstransferComponent {
   tpin!:number;
   accountData!:any;
   transactionStatus!:any;
+  beneficiaries!:any;
 
 
   constructor (private http:HttpClient){
@@ -36,13 +37,20 @@ export class ImpstransferComponent {
 
   }
 
-  fetchAccount(){
+  ngOnInit(){
     let cutomerId=localStorage.getItem("customerid");
     let url=`http://localhost:8080/fetchaccount?customerid=${cutomerId}`;
     this.http.get(url).subscribe((response)=>{
       console.log(response);
       this.accountData=response;
     })
+
+    let url1=`http://localhost:8080/fetchbeneficiaries?customerid=${cutomerId}`;
+    this.http.get(url1).subscribe((response)=>{
+      console.log(response);
+      this.beneficiaries=response;
+    })
+    
   }
   transaction(){
     

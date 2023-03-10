@@ -1,3 +1,4 @@
+
 <form #myform="ngForm" class="container">
   <div class="heading">Initiate IMPS transfer</div>
   <div class="form-group">
@@ -13,7 +14,11 @@
       type="text"
       name="toaccount"
       [(ngModel)]="transferData.toAccount"
+      id="beneficiaries"
     />
+    <datalist id="beneficiaries" *ngFor="let i from  ">
+      <option value="1"></option>
+    </datalist>
   </div>
   <div class="form-group">
     <label for="amount">Amount</label>

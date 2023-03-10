@@ -58,4 +58,10 @@
     <input class="form-control" type="text" name="pincode" [(ngModel)]="customerData.address.pincode" />
   </div>
   <button type="submit" class="btn btn-primary"> Create account </button>
+  <div *ngIf="createAccountStatus.status;else notvalid">
+    <div class="alert alert-success">Form is submitted Admin will verify soon please check email for the Account number.</div>
+  </div>
+  <ng-template #notvalid>
+    <div class="alert alert-danger">Addhar card already registered!</div>
+  </ng-template>
 </form>
