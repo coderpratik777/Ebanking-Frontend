@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createnewaccount',
@@ -11,23 +12,21 @@ export class CreatenewaccountComponent {
   customerData:CustomerData=new CustomerData();
   createAccountStatus!:any;
 
-  constructor(private http:HttpClient){
+  constructor(private router:Router,private http:HttpClient){
 
   }
   submit(){
     let url=`http://localhost:8080/createaccount`;
-    let data=JSON.stringify(this.customerData);
-    this.http.post(url,data,{
-      headers:{
-        "Content":"appliaction/json,charset=utf-8"
-  
-      }
-    }).subscribe((response)=>{
+    // let data=JSON.stringify(this.customerData);
+    this.http.post(url,this.customerData).subscribe((response)=>{
       console.log(response);
       this.createAccountStatus=response;
-
     })
-  }
+    if(this.createAccountStatus.status===true){
+      alert("Form is submitted Admin will verify soon please check email for the Account number");
+      this.router.navigate(['/home']);
+    }
+}
 
 
 }
