@@ -27,6 +27,7 @@ import { ImpstransferComponent } from './Components/impstransfer/impstransfer.co
 
 import { NefttransferComponent } from './Components/nefttransfer/nefttransfer.component';
 import { RtgstransferComponent } from './Components/rtgstransfer/rtgstransfer.component';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 
 
 
@@ -48,6 +49,7 @@ const routes:Routes=[
   {path:'fundtransfer',component:FundtransferComponent},
   {path:'transfermoney',component:TransfermoneyComponent},
   {path:'impstransfer',component:ImpstransferComponent},
+  {path:'admindashboard',component:AdminDashboardComponent},
 
 ]
 
@@ -72,6 +74,7 @@ const routes:Routes=[
    ImpstransferComponent,
    RtgstransferComponent,
    NavbarComponent,
+   AdminDashboardComponent,
 
    
    

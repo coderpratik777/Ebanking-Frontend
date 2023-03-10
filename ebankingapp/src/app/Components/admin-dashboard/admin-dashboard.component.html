@@ -1,0 +1,55 @@
+
+<body>
+    <h1>Admin Dashboard</h1>
+    <table>
+        
+        <tbody>
+            <tr th:each="customer : ${customers}">
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.First_name}"></td>
+                <td th:text="${customer.Last_Name}"></td>
+                <td th:text="${customer.Fathers_Name}"></td>
+                <td th:text="${customer.Mobile number}"></td>
+                <td th:text="${customer.Date of birth}"></td>
+                <td th:text="${customer.Email}"></td>
+                <td th:text="${customer.Adhar card number}"></td>
+
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First_Name</th>
+        <th scope="col">Last_Name</th>
+        <th scope="col">Fathers_Name</th>
+        <th scope="col">Mobile Number</th>
+        <th scope="col">Date Of Birth</th>
+        <th scope="col">Gross anual income</th>
+        <th scope="col">Email</th>
+        <th scope="col">Adhar card number</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let status of userstatus">
+        <th scope="row">{{status.customerId}}</th>
+        <td>{{status.firstName}}</td>
+        <td>{{status.fathersName}}</td>
+        <td>{{status.lastName}}</td>
+        <td>{{status.mobileNumber}}</td>
+        <td>{{status.dateOfBirth}}</td>
+        <td>{{status.grossAnnualIncome}}</td>
+        <td>{{status.email}}</td>
+        <td>{{status.addharCardNumber}}</td>
+        <td><button type="button" (click)="submit(status.customerId)" >{{status.status}}</button></td>
+      </tr>
+      
+     
+    </tbody>
+  </table>
