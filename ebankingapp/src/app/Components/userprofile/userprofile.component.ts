@@ -26,7 +26,7 @@ export class UserprofileComponent implements OnInit{
 
   ngOnInit(): void {
     console.log(this.customerid);
-    this.http.get(`http://localhost:8080/userprofile?customerid=${this.customerid}`).subscribe((Response)=>{
+    this.http.get(`http://localhost:8080/userprofile?customerid=1002`).subscribe((Response)=>{
       this.customer=Response;
       console.log(Response);
     })
