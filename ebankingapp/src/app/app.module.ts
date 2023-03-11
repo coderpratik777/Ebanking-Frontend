@@ -28,6 +28,7 @@ import { ImpstransferComponent } from './Components/impstransfer/impstransfer.co
 import { NefttransferComponent } from './Components/nefttransfer/nefttransfer.component';
 import { RtgstransferComponent } from './Components/rtgstransfer/rtgstransfer.component';
 import { TransactionreceiptComponent } from './Components/transactionreceipt/transactionreceipt.component';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 
 
 
@@ -50,6 +51,8 @@ const routes:Routes=[
   {path:'transfermoney',component:TransfermoneyComponent},
   {path:'impstransfer',component:ImpstransferComponent},
   {path:'transactionreceipt',component:TransactionreceiptComponent},
+  {path:'admindashboard',component:AdminDashboardComponent},
+
 
 ]
 
@@ -75,6 +78,7 @@ const routes:Routes=[
    RtgstransferComponent,
    NavbarComponent,
    TransactionreceiptComponent,
+   AdminDashboardComponent,
 
    
    
