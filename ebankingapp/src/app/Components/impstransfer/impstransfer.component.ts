@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component ,OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+import { TransactionService } from '../transaction.service';
 
 
 @Component({
@@ -18,7 +20,7 @@ export class ImpstransferComponent implements OnInit{
   beneficiaries!:any;
 
 
-  constructor (private http:HttpClient){
+  constructor (private router:Router, private http:HttpClient,private transactionService:TransactionService){
 
   }
 
@@ -44,6 +46,8 @@ export class ImpstransferComponent implements OnInit{
       console.log(response);
       this.accountData=response;
     })
+    
+    console.log(this.transferData.fromAccount);
 
     let url1=`http://localhost:8080/fetchbeneficiaries?customerid=${cutomerId}`;
     this.http.get(url1).subscribe((response)=>{
@@ -63,17 +67,17 @@ export class ImpstransferComponent implements OnInit{
     }
     else if(this.pinStatus==3){
       console.log("transaction initiated");
+      this.transferData.fromAccount=this.accountData.accountId;
       let url=`http://localhost:8080/transaction`;
-      let data=JSON.stringify(this.transferData);
-
-      this.http.post(url,data,{
-        headers:{
-          "Content":"appliaction/json"
-        }
-      }).subscribe((response)=>{
+      console.log(this.transferData);
+      this.http.post(url,this.transferData).subscribe((response)=>{
         console.log(response);
         this.transactionStatus=response;
-  
+        alert("money tranfered!");
+        this.transactionService.setTransactionReceipt(this.transactionStatus);
+        this.router.navigate(['/transactionreceipt']);
+
+      
       })
 
     }
@@ -84,7 +88,7 @@ export class ImpstransferComponent implements OnInit{
 }
 
 export class ImpsTransferData{
-  fromAccount:number=12;
+  fromAccount!:number;
   toAccount!:number;
   amount!:number;
   transactionDate:Date=new Date();

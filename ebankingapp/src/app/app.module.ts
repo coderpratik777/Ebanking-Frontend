@@ -27,11 +27,12 @@ import { ImpstransferComponent } from './Components/impstransfer/impstransfer.co
 
 import { NefttransferComponent } from './Components/nefttransfer/nefttransfer.component';
 import { RtgstransferComponent } from './Components/rtgstransfer/rtgstransfer.component';
+import { TransactionreceiptComponent } from './Components/transactionreceipt/transactionreceipt.component';
 
 
 
 const routes:Routes=[
-  {path:'home',component:HomeComponent},
+  {path:'',component:HomeComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
@@ -48,6 +49,7 @@ const routes:Routes=[
   {path:'fundtransfer',component:FundtransferComponent},
   {path:'transfermoney',component:TransfermoneyComponent},
   {path:'impstransfer',component:ImpstransferComponent},
+  {path:'transactionreceipt',component:TransactionreceiptComponent},
 
 ]
 
@@ -72,6 +74,7 @@ const routes:Routes=[
    ImpstransferComponent,
    RtgstransferComponent,
    NavbarComponent,
+   TransactionreceiptComponent,
 
    
    
