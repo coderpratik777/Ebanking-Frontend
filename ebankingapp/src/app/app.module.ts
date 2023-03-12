@@ -52,6 +52,8 @@ const routes:Routes=[
   {path:'impstransfer',component:ImpstransferComponent},
   {path:'transactionreceipt',component:TransactionreceiptComponent},
   {path:'admindashboard',component:AdminDashboardComponent},
+  {path:"rtgstransfer",component:RtgstransferComponent},
+  {path:"nefttransfer",component:NefttransferComponent}
 
 
 ]

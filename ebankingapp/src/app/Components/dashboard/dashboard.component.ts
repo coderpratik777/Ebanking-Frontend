@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 export class DashboardComponent {
 
   status:any=localStorage.getItem("Useractive");
+  constructor(public router:Router){
+
+  }
   
 
 
