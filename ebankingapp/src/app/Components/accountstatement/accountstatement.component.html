@@ -1,7 +1,6 @@
-
 <app-dashboard></app-dashboard>
-<div >
-<table class="table table-hover" >
+<div>
+  <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">select</th>
@@ -19,8 +18,58 @@
         <td>{{account.accountType}}</td>
         <td>{{account.balance}}</td>
       </tr>
-     
+
     </tbody>
   </table>
 
 
+
+  <!-- <button type="button" class="btn btn-primary" (click)="showmini()">Show MiniTransation</button> -->
+
+
+  <form (ngSubmit)="submit()">
+    <div style="display: flex;padding: 5px; ">
+      <div style="width:200px; padding: 5px; ">
+        <input type="text" class="form-control" placeholder="From Date"
+        [(ngModel)]="transdetail.datefrom"
+      #datefrom="ngModel"
+      name="datefrom"
+        >
+      </div>
+      <div style="width:200px; padding: 5px;">
+        <input type="text" class="form-control" placeholder="To Date" 
+        [(ngModel)]="transdetail.dateto"
+      #datet="ngModel"
+      name="dateto">
+      </div>
+
+      <button type="submit"  class="btn btn-info" >Show Transaction</button>
+
+    </div>
+
+  </form>
+  <table class="table" *ngIf="s==true">
+    <thead>
+      <tr>
+        <th scope="col">Transaction Id</th>
+        <th scope="col">Transaction Amount</th>
+        <th scope="col">Transaction date</th>
+        <th scope="col">Transaction Type</th>
+        <th scope="col">Sende Account</th>
+        <th scope="col">Received Account</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of trans2">
+        <th scope="row">{{t.transactionId}}</th>
+        <td>{{t.transactionAmount}}</td>
+        <td>{{t.transactionDate}}</td>
+        <td>{{t.transactionType}}</td>
+        <td>{{t.senderAccount}}</td>
+        <td>{{t.receiverAccount}}</td>
+      </tr>
+
+
+    </tbody>
+  </table>
