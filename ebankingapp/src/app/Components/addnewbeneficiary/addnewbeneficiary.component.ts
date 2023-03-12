@@ -27,6 +27,7 @@ export class AddnewbeneficiaryComponent implements OnInit {
       this.http.post(url,this.beneficiaryData).subscribe((response)=>{
         console.log(response);
         this.registrationStatus=response;
+        alert("Beneficiary added !")
   
       })
     
