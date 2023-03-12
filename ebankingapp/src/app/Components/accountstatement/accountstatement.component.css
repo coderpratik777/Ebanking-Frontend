@@ -1,0 +1,23 @@
+.container{
+    position: absolute;
+    background-color: rgb(248 251 246 / 68%);
+    color: black;
+    top: 25%;
+    width: 900px;
+    left: 10%;
+    border-radius: 10px;
+}
+.container1{
+    position: absolute;
+    width: 500px;
+    top: 45%;
+    left:28%;
+    background-color: rgb(248 251 246 / 68%);
+    text-align: start;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px black;
+}
+.container1 label{
+    display: block;
+}

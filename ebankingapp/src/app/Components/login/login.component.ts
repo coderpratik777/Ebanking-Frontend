@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs';
 
 
 @Component({
@@ -18,39 +20,34 @@ export class LoginComponent {
 
   username1!:string;
 
-  
+  apiUrl:string=`http://localhost:8080/login`;
   constructor (private router:Router,private http:HttpClient){
 
   }
 
-  login(logs:{username:string,password:string}){
-    
-
-    let json:any=JSON.stringify(logs);
-    const headers= new HttpHeaders({'content-type':'application/json'})
-    
-    this.http.post(
-      'http://localhost:8080/login',
-      json,{headers:headers}).subscribe((Response)=>{
-        this.logindetail=Response;
-        console.log(Response);
-      })
-
+  async login(logs:{username: string, password: string}): Promise<any> {
+    try {
+      const response = await this.postLoginRequest(logs);
+      // Login successful
+      this.logindetail=await response;
       if(this.logindetail.status==true){
-        localStorage.setItem('customerid',this.logindetail.customerid);
-        localStorage.setItem('username1',this.username);
-       localStorage.setItem("Useractive","true");
-       this.router.navigate(['/dashboard']);
-       
-
-      }
-    //  let cust:Number=localStorage.getItem('customerid');
-    console.log(localStorage.getItem('customerid'));
-
-    console.log(localStorage.getItem('username1'));
-      
+                localStorage.setItem('customerid',this.logindetail.customerid);
+                localStorage.setItem('username1',this.username);
+               localStorage.setItem("Useractive","true");
+               this.router.navigate(['/dashboard']);
+               
+        
+              }
+      return response;
+    } catch (error) {
+      // Login failed
+      console.error('Login failed:', error);
+      throw error;
+    }
   }
 
-  
+  private postLoginRequest(logs:{username: string, password: string}): Promise<any> {
+    return this.http.post<any>(this.apiUrl,logs).toPromise();
+  }
 
 }

@@ -1,32 +1,86 @@
+<div *ngIf="status == 'true'; else errorPage">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" routerLink="/">EBanking</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a routerLink="/forgotpassword">Forgot password</a>
+        </li>
+        <li><a routerLink="/newpassword">Create new Password</a></li>
+        <li><a routerLink="/accountstatement">Account Statement</a></li>
+        <li><a routerLink="/fundtransfer">Fund Transfer</a></li>
+        <li><a routerLink="/userprofile">User profile</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container"></div>
+  <div >
+    <div *ngIf="router.url==='/dashboard'" class="container2">
+      <label
+        >1. Keep your login details secure: Always keep your login details such
+        as username and password safe and secure. Do not share them with anyone
+        and avoid using the same login details for multiple accounts.</label
+      >
 
-<div *ngIf="status=='true'; else errorPage">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" routerLink="/home">EBanking</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a routerLink="/forgotpassword">Forgot password</a></li>
-            <li><a routerLink="/newpassword">Create new Password</a></li>
-            <li><a routerLink="/accountstatement">Account Statement</a></li>
-            <li><a routerLink="/fundtransfer">Fund Transfer</a></li>
-            <li><a routerLink="/userprofile">User profile</a></li>
-            <li><a routerLink="/admindashboard">Admin DashBoard</a></li>
-          </ul>
-        </div>
-      </nav>
-     
+      <label
+        >2. Use strong passwords: Use a strong and unique password for your
+        e-banking account that includes a combination of letters, numbers, and
+        special characters.</label
+      >
+
+      <label
+        >3. Be cautious of phishing scams: Be wary of any suspicious emails or
+        messages asking for personal information or login details. Always verify
+        the authenticity of the message before clicking on any links or
+        providing any information.</label
+      >
+
+      <label
+        >4. Use secure connections: Always use a secure internet connection to
+        access your e-banking account. Avoid using public Wi-Fi or unsecured
+        networks as they can be easily hacked.</label
+      >
+
+      <label
+        >5. Keep your device updated: Keep your device’s operating system and
+        anti-virus software up-to-date to ensure that it is protected against
+        any vulnerabilities or security threats.</label
+      >
+
+      <label
+        >6. Monitor your account regularly: Keep an eye on your account balance
+        and transaction history regularly to detect any unauthorized
+        activity.</label
+      >
+
+      <label
+        >7. Use two-factor authentication: Use two-factor authentication
+        wherever possible to add an extra layer of security to your e-banking
+        account.</label
+      >
+
+      <label
+        >8. Log out after each session: Always log out of your e-banking account
+        after each session to prevent unauthorized access.</label
+      >
+
+      <label
+        >9. Report suspicious activity: If you notice any suspicious activity or
+        transactions on your account, report it to your bank immediately.</label
+      >
+    </div>
+  </div>
 </div>
 <ng-template #errorPage>
-    <navbar></navbar>
-    <div class="d-flex align-items-center justify-content-center vh-100">
-        <div class="text-center">
-            <h1 class="display-1 fw-bold">404</h1>
-            <p class="fs-3"> <span class="text-danger">Opps!</span> Page not found.</p>
-            <p class="lead">
-                The page you’re looking for doesn’t exist.
-              </p>
-            <a routerLink="/login" class="btn btn-primary">Login</a>
-        </div>
+  <navbar></navbar>
+  <div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="text-center">
+      <h1 class="display-1 fw-bold">404</h1>
+      <p class="fs-3"><span class="text-danger">Opps!</span> Page not found.</p>
+      <p class="lead">The page you’re looking for doesn’t exist.</p>
+      <a routerLink="/login" class="btn btn-primary">Login</a>
     </div>
+  </div>
 </ng-template>
