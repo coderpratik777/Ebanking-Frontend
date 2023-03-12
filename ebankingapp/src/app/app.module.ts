@@ -81,6 +81,7 @@ const routes:Routes=[
    NavbarComponent,
    TransactionreceiptComponent,
    AdminDashboardComponent,
+   AddnewbeneficiaryComponent,
 
    
    

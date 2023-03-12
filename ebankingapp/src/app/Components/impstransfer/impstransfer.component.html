@@ -14,10 +14,11 @@
       type="text"
       name="toaccount"
       [(ngModel)]="transferData.toAccount"
-      id="beneficiaries"
+      list="beneficiaries"
+      required
     />
-    <datalist id="beneficiaries" *ngFor="let i of beneficiaries">
-      <option value={{beneficiaries.name}}></option>
+    <datalist id="beneficiaries">
+      <option value={{beneficiary.accountNumber}} *ngFor="let beneficiary of beneficiaries">{{beneficiary.name}}</option>
     </datalist>
   </div>
   <div class="form-group">
@@ -61,7 +62,7 @@
       Total amount {{ transferData.amount  | currency : "INR" }}
     </button>
   </div>
-  <div *ngIf="pinStatus==2">
+  <div *ngIf="pinStatus==2 || pinStatus==0">
     <label for="tpin">Enter your TPIN</label>
     <input class="form-control" name="tpin" [(ngModel)]="tpin"/>
     <button type="button" class="btn btn-primary" (click)="verifyTpin()">Verify</button>
@@ -69,8 +70,11 @@
   <div *ngIf="pinStatus==3">
     <div class="alert alert-success"> TPIN verified Continue to transfer!</div>
   </div>
-  <div *ngIf="pinStatus==0 || (pinStatus==2 && verifypin==false)">
+  <div *ngIf="pinStatus==2 && verifypin==false">
     <div class="alert alert-danger"> Please Enter valid TPIN</div>
+  </div>
+  <div *ngIf="pinStatus==0 && verifypin==null">
+    <div class="alert alert-danger"> Please verify TPIN</div>
   </div>
   <button type="reset" class="btn btn-primary">Reset</button>
   <button type="button" (click)="transaction()" class="btn btn-primary">Continue</button>

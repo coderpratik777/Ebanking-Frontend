@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-addnewbeneficiary',
   templateUrl: './addnewbeneficiary.component.html',
   styleUrls: ['./addnewbeneficiary.component.css']
 })
-export class AddnewbeneficiaryComponent {
+export class AddnewbeneficiaryComponent implements OnInit {
 
   beneficiaryData:BeneficiaryData=new BeneficiaryData();
   registrationStatus!:any;
@@ -15,30 +15,29 @@ export class AddnewbeneficiaryComponent {
 
   }
 
+  ngOnInit(): void {
+    this.beneficiaryData.customerId=localStorage.getItem("customerid");
+    console.log(this.beneficiaryData)
+  }
+
   addBeneficiary(){
-    if(this.beneficiaryData.saveBeneficiary==true){
       //add the customer id in the beneficiary data from the session storage
+      console.log(this.beneficiaryData);
       let url=`http://localhost:8080/addbeneficiary`;
-      let data=JSON.stringify(this.beneficiaryData);
-      this.http.post(url,data,{
-        headers:{
-          "Content":"appliaction/json"
-        }
-      }).subscribe((response)=>{
+      this.http.post(url,this.beneficiaryData).subscribe((response)=>{
         console.log(response);
         this.registrationStatus=response;
   
       })
-    }
+    
   }
 
 }
 
 export class BeneficiaryData{
   accountNumber!:number;
-  customerId!:number;
+  customerId!:any;
   name!:string;
   nickName!:string;
-  saveBeneficiary!:boolean;
 
 }

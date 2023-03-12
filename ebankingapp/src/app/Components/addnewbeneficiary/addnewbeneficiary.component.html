@@ -1,12 +1,12 @@
-<form class="container" (ngSubmit)="addBeneficiary()">
+<form class="container">
   <div class="heading">Add new Beneficiary</div>
   <div class="form-group">
     <label for="beneficiaryname">Beneficiary Name</label>
-    <input class="form-control" type="text" name="beneficiaryname" />
+    <input class="form-control" type="text" name="beneficiaryname" [(ngModel)]="beneficiaryData.name"/>
   </div>
   <div class="form-group">
     <label for="beneficiaryaccountnumber">Beneficiary account number</label>
-    <input class="form-control" type="text" name="beneficiaryaccountnumber" />
+    <input class="form-control" type="text" name="beneficiaryaccountnumber" [(ngModel)]="beneficiaryData.accountNumber"/>
   </div>
   <div class="form-group">
     <label for="confirmbeneficiaryaccountnumber"
@@ -18,22 +18,9 @@
       name="comfirmbeneficiaryaccountnumber"
     />
   </div>
-  <div class="form-check">
-    <input
-      class="form-control"
-      class="form-check-input position-static"
-      type="checkbox"
-      id="savebeneficiary"
-      value="option1"
-      aria-label="Save Beneficiary"
-    />
-    <label class="form-check-label" for="savebeneficiary"
-      >Save Beneficiary</label
-    >
-  </div>
   <div class="form-group">
     <label for="nickname">Nick Name</label>
-    <input class="form-control" type="text" name="nickname" />
+    <input class="form-control" type="text" name="nickname" [(ngModel)]="beneficiaryData.nickName" />
   </div>
-  <button type="submit" class="btn btn-primary">Save Beneficiary</button>
+  <button type="button" (click)="addBeneficiary()" class="btn btn-primary">Save Beneficiary</button>
 </form>
