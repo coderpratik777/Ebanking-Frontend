@@ -1,9 +1,10 @@
 
+<app-adminnavbar></app-adminnavbar>
 <body>
     <h1>Admin Dashboard</h1>
     <table>
         
-        <tbody>
+        <!-- <tbody>
             <tr th:each="customer : ${customers}">
                 <td th:text="${customer.id}"></td>
                 <td th:text="${customer.First_name}"></td>
@@ -15,7 +16,7 @@
                 <td th:text="${customer.Adhar card number}"></td>
 
             </tr>
-        </tbody>
+        </tbody> -->
     </table>
 </body>
 
@@ -47,7 +48,7 @@
         <td>{{status.grossAnnualIncome}}</td>
         <td>{{status.email}}</td>
         <td>{{status.addharCardNumber}}</td>
-        <td><button type="button" (click)="submit(status.customerId)" >{{status.status}}</button></td>
+        <td ><button type="button" (click)="submit(status.customerId)" >{{status.status}}</button></td>
       </tr>
       
      

@@ -1,26 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs';
-
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-adminlogin',
+  templateUrl: './adminlogin.component.html',
+  styleUrls: ['./adminlogin.component.css']
 })
-export class LoginComponent {
+export class AdminloginComponent {
+
 
   username!:string;
   password!:string;
 
   logindetail!:any;
   customerid!:Number;
-mess!:any;
+
   username1!:string;
 
-  apiUrl:string=`http://localhost:8080/login`;
+  apiUrl:string=`http://localhost:8080/adminlogin`;
   constructor (private router:Router,private http:HttpClient){
 
   }
@@ -34,13 +32,9 @@ mess!:any;
                 localStorage.setItem('customerid',this.logindetail.customerid);
                 localStorage.setItem('username1',this.username);
                localStorage.setItem("Useractive","true");
-               this.router.navigate(['/dashboard']);
-               console.log(this.logindetail);
+               this.router.navigate(['/admindashboard']);
+               
         
-              }
-              else{
-                
-                console.log(this.logindetail);
               }
       return response;
     } catch (error) {
