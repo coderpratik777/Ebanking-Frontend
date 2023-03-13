@@ -31,7 +31,6 @@ import { TransactionreceiptComponent } from './Components/transactionreceipt/tra
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { AdminloginComponent } from './Components/adminlogin/adminlogin.component';
 import { AdminnavbarComponent } from './Components/adminnavbar/adminnavbar.component';
-import { AdminOneCustomerComponent } from './admin-one-customer/admin-one-customer.component';
 
 
 
@@ -87,7 +86,7 @@ const routes:Routes=[
    AddnewbeneficiaryComponent,
    AdminloginComponent,
    AdminnavbarComponent,
-   AdminOneCustomerComponent,
+  
 
    
    
