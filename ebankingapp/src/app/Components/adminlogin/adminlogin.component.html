@@ -1,0 +1,41 @@
+
+
+<app-adminnavbar></app-adminnavbar>
+<div class="container">
+    <h1>Form</h1>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" [(ngModel)]="username" name="username" />
+
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="text" class="form-control" [(ngModel)]="password" name="password" />
+        </div>
+
+
+        <button type="submit" class="btn btn-info">Submit</button>
+
+        <div *ngIf="logindetail.status==false">
+            <div class="alert alert-danger">Please enter valid credentials!</div>
+        </div>
+
+
+    </form>
+
+</div>
+
+<div class="container">
+
+    <div class="bottom">
+        <a routerLink="">Forgot Password?</a>
+    </div>
+
+    <div class="bottom">
+        <a routerLink="">Forgot Username?</a>
+    </div>
+
+</div>
+

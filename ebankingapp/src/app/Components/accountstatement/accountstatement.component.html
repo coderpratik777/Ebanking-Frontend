@@ -1,87 +1,125 @@
 <app-dashboard></app-dashboard>
-<<<<<<< HEAD
+
 <div>
   <table class="table table-hover">
-=======
-<div class="container">
-<table class="table table-hover" >
->>>>>>> f8dca8e65a6095934bfeab21d2e49ce93ca7179a
-    <thead>
-      <tr>
-        <th scope="col">Account Number</th>
-        <th scope="col">Name</th>
-        <th scope="col">Account Type</th>
-        <th scope="col">Balance</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{account.accountNumber}}</td>
-        <td>{{account.name}}</td>
-        <td>{{account.accountType}}</td>
-        <td>{{account.balance}}</td>
-      </tr>
 
-    </tbody>
-  </table>
-</div>
-<div class="container1">
-  <label>1. Keep track of your income and expenses:</label>
+    <div class="container">
+      <table class="table table-hover">
 
-<label>2. Set a budget:</label>
+        <thead>
+          <tr>
+            <th scope="col">Account Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Account Type</th>
+            <th scope="col">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{account.accountNumber}}</td>
+            <td>{{account.name}}</td>
+            <td>{{account.accountType}}</td>
+            <td>{{account.balance}}</td>
+          </tr>
 
-<<<<<<< HEAD
-
-  <!-- <button type="button" class="btn btn-primary" (click)="showmini()">Show MiniTransation</button> -->
+        </tbody>
+      </table>
+    </div>
 
 
-  <form (ngSubmit)="submit()">
-    <div style="display: flex;padding: 5px; ">
-      <div style="width:200px; padding: 5px; ">
-        <input type="text" class="form-control" placeholder="From Date"
-        [(ngModel)]="transdetail.datefrom"
-      #datefrom="ngModel"
-      name="datefrom"
-        >
-      </div>
-      <div style="width:200px; padding: 5px;">
-        <input type="text" class="form-control" placeholder="To Date" 
-        [(ngModel)]="transdetail.dateto"
-      #datet="ngModel"
-      name="dateto">
-      </div>
 
-      <button type="submit"  class="btn btn-info" >Show Transaction</button>
+
+
+
+    <div class="container2">
+
+
+      <form (ngSubmit)="submit()">
+        <div style="display: flex;padding: 5px; ">
+          <div style="width:200px; padding: 5px; ">
+            <input type="text" class="form-control" placeholder="From Date" [(ngModel)]="transdetail.datefrom"
+              #datefrom="ngModel" name="datefrom">
+          </div>
+          <div style="width:200px; padding: 5px;">
+            <input type="text" class="form-control" placeholder="To Date" [(ngModel)]="transdetail.dateto"
+              #datet="ngModel" name="dateto">
+          </div>
+
+          <button type="submit" class="btn btn-info">Show Transaction</button>
+
+        </div>
+
+      </form>
+
+      <!-- <div class="container3"> -->
+        <table class="table" *ngIf="s1==true">
+          <thead>
+            <tr>
+              <th scope="col">Transaction Id</th>
+              <th scope="col">Transaction Amount</th>
+              <th scope="col">Transaction date</th>
+              <th scope="col">Transaction Type</th>
+              <th scope="col">Sende Account</th>
+              <th scope="col">Received Account</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let t of trans2">
+              <th scope="row">{{t.transactionId}}</th>
+              <td>{{t.transactionAmount}}</td>
+              <td>{{t.transactionDate}}</td>
+              <td>{{t.transactionType}}</td>
+              <td>{{t.senderAccount}}</td>
+              <td>{{t.receiverAccount}}</td>
+            </tr>
+
+
+          </tbody>
+        </table>
+      <!-- </div> -->
+
 
     </div>
 
-  </form>
-  <table class="table" *ngIf="s==true">
-    <thead>
-      <tr>
-        <th scope="col">Transaction Id</th>
-        <th scope="col">Transaction Amount</th>
-        <th scope="col">Transaction date</th>
-        <th scope="col">Transaction Type</th>
-        <th scope="col">Sende Account</th>
-        <th scope="col">Received Account</th>
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let t of trans2">
-        <th scope="row">{{t.transactionId}}</th>
-        <td>{{t.transactionAmount}}</td>
-        <td>{{t.transactionDate}}</td>
-        <td>{{t.transactionType}}</td>
-        <td>{{t.senderAccount}}</td>
-        <td>{{t.receiverAccount}}</td>
-      </tr>
+    <div class="container4">
+      <button type="button" class="btn btn-primary" (click)="showmini()">Show All Transation</button>
+
+      <table class="table" *ngIf="s2==true">
+        <thead>
+          <tr>
+            <th scope="col">Transaction Id</th>
+            <th scope="col">Transaction Amount</th>
+            <th scope="col">Transaction date</th>
+            <th scope="col">Transaction Type</th>
+            <th scope="col">Sende Account</th>
+            <th scope="col">Received Account</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of trans">
+            <th scope="row">{{t.transactionId}}</th>
+            <td>{{t.transactionAmount}}</td>
+            <td>{{t.transactionDate}}</td>
+            <td>{{t.transactionType}}</td>
+            <td>{{t.senderAccount.accountId}}</td>
+            <td>{{t.receiverAccount.accountId}}</td>
+          </tr>
 
 
-    </tbody>
-  </table>
-=======
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- <div class="container1">
+
+  <label>1. Keep track of your income and expenses:</label>
+
+  <label>2. Set a budget:</label>
+
 <label>3. Avoid unnecessary fees:</label>
 
 <label>4. Use automatic savings plans:</label>
@@ -91,5 +129,4 @@
 <label>6. Plan for unexpected expenses:</label>
 
 <label>7. Consider using financial management tools:</label>
-</div>
->>>>>>> f8dca8e65a6095934bfeab21d2e49ce93ca7179a
+</div>  -->

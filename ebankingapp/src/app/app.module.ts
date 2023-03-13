@@ -29,6 +29,8 @@ import { NefttransferComponent } from './Components/nefttransfer/nefttransfer.co
 import { RtgstransferComponent } from './Components/rtgstransfer/rtgstransfer.component';
 import { TransactionreceiptComponent } from './Components/transactionreceipt/transactionreceipt.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { AdminloginComponent } from './Components/adminlogin/adminlogin.component';
+import { AdminnavbarComponent } from './Components/adminnavbar/adminnavbar.component';
 
 
 
@@ -53,8 +55,8 @@ const routes:Routes=[
   {path:'transactionreceipt',component:TransactionreceiptComponent},
   {path:'admindashboard',component:AdminDashboardComponent},
   {path:"rtgstransfer",component:RtgstransferComponent},
-  {path:"nefttransfer",component:NefttransferComponent}
-
+  {path:"nefttransfer",component:NefttransferComponent},
+{path:"adminlogin",component:AdminloginComponent}
 
 ]
 
@@ -82,6 +84,8 @@ const routes:Routes=[
    TransactionreceiptComponent,
    AdminDashboardComponent,
    AddnewbeneficiaryComponent,
+   AdminloginComponent,
+   AdminnavbarComponent,
 
    
    

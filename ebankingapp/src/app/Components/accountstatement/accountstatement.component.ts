@@ -21,7 +21,8 @@ export class AccountstatementComponent implements OnInit {
   account!: any;
   trans!: any;
   customerid: any = localStorage.getItem('customerid');
-  s: boolean = false;
+  s1: boolean = false;
+  s2: boolean = false;
   transdetail:TransInfo=new TransInfo;
   json!:any;
   trans2!:any;
@@ -44,16 +45,26 @@ export class AccountstatementComponent implements OnInit {
   }
 
   showmini() {
+  this.s1=false;
+    this.s2 = true;
+    console.log(this.s1);
 
-    this.s = true;
-    console.log(this.s);
+    this.http.get(`http://localhost:8080/accountstatement?username=${this.username}`).subscribe((Response) => {
+      this.account = Response;
+      console.log(this.customerid);
+      // console.log(Response)
+    })
+    this.http.get(`http://localhost:8080/gettransaction?customerid=${this.customerid}`).subscribe((response) => {
+      this.trans = response;
 
-
+      // console.log(response)
+    })
   }
 
    submit(){
-    this.s = true;
-    console.log(this.s);
+    this.s1 = true;
+    this.s2=false;
+    console.log(this.s1);
 
     const headers= new HttpHeaders({'content-type':'application/json'})
     this.transdetail.customerid=this.customerid;
