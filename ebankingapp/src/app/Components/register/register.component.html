@@ -51,6 +51,9 @@
       #username="ngModel"
       required
     />
+    <div *ngIf="username.touched||username.dirty">
+      <div *ngIf="username.errors?.['required']" class="alert alert-danger">Please enter username</div>
+    </div>
     <div *ngIf="myForm.submitted">
       <div *ngIf="username.invalid">
         <div *ngIf="username.errors?.['required']" class="alert alert-danger">Enter a username</div>
