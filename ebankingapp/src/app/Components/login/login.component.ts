@@ -17,7 +17,7 @@ export class LoginComponent {
 
   logindetail!:any;
   customerid!:Number;
-
+mess!:any;
   username1!:string;
 
   apiUrl:string=`http://localhost:8080/login`;
@@ -35,8 +35,12 @@ export class LoginComponent {
                 localStorage.setItem('username1',this.username);
                localStorage.setItem("Useractive","true");
                this.router.navigate(['/dashboard']);
-               
+               console.log(this.logindetail);
         
+              }
+              else{
+                
+                console.log(this.logindetail);
               }
       return response;
     } catch (error) {
