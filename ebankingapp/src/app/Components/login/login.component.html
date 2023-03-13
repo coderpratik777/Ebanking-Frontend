@@ -35,10 +35,14 @@
         <div class="alert alert-danger" *ngIf="password1.errors?.['required']">Please enter password</div>
       </div>
     </div>
-       
-
-
         <button type="submit" class="btn btn-info">Submit</button>
+        <div *ngIf="logindetail.mes=='user not exist' && loginForm.valid">
+            <div class="alert alert-danger">Please enter valid credentials</div>
+        </div>
+        <div *ngIf="logindetail.mes=='Account is Locked' && loginForm.valid">
+          <div class="alert alert-danger">Your account is locked Contact admin for more information</div>
+      </div>
+
     </form>
 </div>
 

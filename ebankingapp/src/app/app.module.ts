@@ -31,6 +31,7 @@ import { TransactionreceiptComponent } from './Components/transactionreceipt/tra
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { AdminloginComponent } from './Components/adminlogin/adminlogin.component';
 import { AdminnavbarComponent } from './Components/adminnavbar/adminnavbar.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -98,7 +99,7 @@ const routes:Routes=[
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -33,7 +33,7 @@
       max="4000"
     />
   </div>
-  <div *ngIf="amount.invalid && (amount.touched || amount.dirty)" class="alert">
+  <div *ngIf="myform.submitted || (amount.invalid && (amount.touched || amount.dirty))" class="alert">
     <div class="alert alert-danger" *ngIf="amount.errors?.['required']">
         Amount is required
     </div>

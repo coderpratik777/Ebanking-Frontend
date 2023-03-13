@@ -1,62 +1,226 @@
+
 <navbar></navbar>
-<form (ngSubmit)="submit()" class="container">
+
+<form 
+class="container"
+  #myForm="ngForm"
+  (ngSubmit)="myForm.valid && submit()"
+>
   <div class="heading">Create new Account</div>
+  
   <div class="form-group">
     <label for="Firstname">First Name</label>
-    <input class="form-control" type="text" name="Firstname" [(ngModel)]="customerData.firstName">
-  </div>
+    <input 
+    type="text"
+    class="form-control"
+    name="FirstName" 
+    placeholder="Enter first Name"
+    [(ngModel)]="customerData.firstName"
+    #Firstname="ngModel"
+    required
+    />
+   <div *ngIf="myForm.submitted && Firstname.invalid">
+    <div class="alert alert-danger">Firstname is required</div>
+   </div>
+</div>
+
   <div class="form-group">
-    <label for="Lastname">Last Name</label>
-    <input class="form-control" type="text" name="Lastname"[(ngModel)]="customerData.lastName" />
-  </div>
+  <label for="Lastname">Last Name</label>
+    <input
+    type="text"  
+    class="form-control"
+    name="Lastname"
+    placeholder="Enter Last Name"
+    [(ngModel)]="customerData.lastName"
+    #lastname="ngModel"
+    required
+    />
+    <div *ngIf="myForm.submitted && lastname.invalid">
+      <div class="alert alert-danger">Lastname is required</div>
+     </div>
+</div>
+   
+
    <div class="form-group">
     <label for="fathername">Father's Name</label>
-    <input class="form-control" type="text" name="fathername"[(ngModel)]="customerData.fatherName" />
-  </div>
+    <input 
+    type="text" 
+    class="form-control"  
+    name="fathername"
+    placeholder="Father name"
+    [(ngModel)]="customerData.fathersName" 
+    #Fathername="ngModel"
+    required
+    />
+    <div *ngIf="myForm.submitted && Fathername.invalid">
+      <div class="alert alert-danger">Fathername is required</div>
+     </div>
+</div>
+    
   <div class="form-group">
     <label for="mobileNumber">Mobile number</label>
-    <input class="form-control" type="text" name="mobileNumber" [(ngModel)]="customerData.mobileNumber"/>
+    <input 
+    type="text" 
+    class="form-control"
+    name="mobileNumber"
+    placeholder="mobile Number" 
+    [(ngModel)]="customerData.mobileNumber"
+    #mobilenumber="ngModel"
+    required
+    minlength="10"
+    maxlength="10"
+   
+    />
+    <div *ngIf="mobilenumber.invalid && (mobilenumber.dirty || mobilenumber.touched)" class="alert">
+      <div *ngIf="mobilenumber.errors?.['minlength']"></div>
+          <div class="alert alert-danger">Mobile number must contain 10 digits</div>
+      </div>
+    <div *ngIf="myForm.submitted && mobilenumber.invalid" class="alert">
+      <div *ngIf="mobilenumber.errors?.['required']"></div>
+      <div class="alert alert-danger">Mobile number is required</div>
+    </div>
   </div>
+
   <div class="form-group">
     <label for="addharCardNumber">addhar card number</label>
-    <input class="form-control" type="text" name="addharCardNumber"[(ngModel)]="customerData.addharCardNumber"/>
+    <input 
+    class="form-control" 
+    type="text" 
+    name="addharCardNumber"
+    placeholder="Aadhar card number"
+    [(ngModel)]="customerData.addharCardNumber"
+    #aadharCardNumber="ngModel"
+    required
+    minlength="4"
+    />
+    <div *ngIf="aadharCardNumber.invalid && (aadharCardNumber.dirty || aadharCardNumber.touched)" class="alert">
+      <div *ngIf="aadharCardNumber.errors?.['required']"></div>
+        <div class="alert alert-danger">Adhar card number is required</div>
+
+      <div *ngIf="aadharCardNumber.errors?.['minlength']"></div>
+          <div class="alert alert-danger">adhar card must contain 4 digits</div>
+      </div>
+      <div *ngIf="myForm.submitted && aadharCardNumber.invalid" class="alert">
+        <div *ngIf="aadharCardNumber.errors?.['required']"></div>
+        <div class="alert alert-danger">Aadhar card number is required</div>
+      </div>
   </div>
+
+
   <div class="form-group">
     <label for="email">Email</label>
-    <input class="form-control" type="text" name="email" [(ngModel)]="customerData.email"/>
+    <input
+    class="form-control" 
+    type="text" 
+    name="email" 
+    placeholder="Email"
+    [(ngModel)]="customerData.email"
+    #email="ngModel"
+    required
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+    />
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+     <div *ngIf="email.errors?.['pattern']"></div>
+      <div class="alert alert-danger">invalid pattern</div>
+    </div>
+      <div *ngIf="myForm.submitted && email.invalid" class="alert">
+        <div *ngIf="email.errors?.['required']"></div>
+        <div class="alert alert-danger">Email is required</div>
+      </div>
   </div>
+  
   <div class="form-group">
     <label for="incomeSource">Source Of Income</label>
-    <input class="form-control" type="text" name="incomeSource" [(ngModel)]="customerData.sourceOfIncome"/>
+    <input 
+    class="form-control" 
+    type="text" 
+    name="incomeSource" 
+    placeholder="Source of income"
+    [(ngModel)]="customerData.sourceOfIncome"/>
   </div>
   <div class="form-group">
     <label for="income">Annual income</label>
-    <input class="form-control" type="text" name="income" [(ngModel)]="customerData.grossAnnualIncome"/>
+    <input 
+    class="form-control" 
+    type="text" name="income" 
+    placeholder="Annual income"
+    [(ngModel)]="customerData.grossAnnualIncome"/>
   </div>
   <div class="form-group">
     <label for="dob">DateOfBirth</label>
-    <input class="form-control" type="date" name="dob" [(ngModel)]="customerData.datOfBirth"/>
-  </div>
+    <input 
+    class="form-control"
+    type="date" 
+    name="dob" 
+    placeholder="date of birth"
+    #DateOfBirth="ngModel"
+    [(ngModel)]="customerData.dateOfBirth"
+    required
+   />
+   <div *ngIf="DateOfBirth.invalid && (DateOfBirth.dirty || DateOfBirth.touched)" class="alert alert-danger">
+    <div *ngIf="DateOfBirth.errors?.['required']"></div>
+      <div class="alert alert-danger">this is required field</div>
+
+</div>
+</div>
+
   <div class="form-group">
     <label for="address1">Address line 1</label>
-    <input class="form-control" type="text" name="address2" [(ngModel)]="customerData.address.addressLine1" />
+    <input class="form-control" placeholder="Address"
+    type="text" name="address2" [(ngModel)]="customerData.address.addressLine1" />
   </div>
   <div class="form-group">
     <label for="address2">Address line 2</label>
-    <input class="form-control" type="text" name="address2" [(ngModel)]="customerData.address.addressLine2"/>
+    <input
+    class="form-control" 
+    placeholder="Address2"
+    type="text" 
+    name="address2" 
+    [(ngModel)]="customerData.address.addressLine2"/>
   </div>
   <div class="form-group">
     <label for="landamark">Landmark</label>
-    <input class="form-control" type="text" name="landmark" [(ngModel)]="customerData.address.landmark" />
+    <input 
+    class="form-control" 
+    type="text" 
+    placeholder="Landmark"
+    name="landmark" 
+    [(ngModel)]="customerData.address.landmark" />
   </div>
   <div class="form-group">
     <label for="city">City</label>
-    <input class="form-control" type="text" name="city" [(ngModel)]="customerData.address.city"/>
+    <input 
+    class="form-control" 
+    type="text" 
+    placeholder="city"
+    name="city" 
+    [(ngModel)]="customerData.address.city"
+    #City="ngModel"
+    required
+    />
+    <div *ngIf="myForm.submitted && City.invalid" class="alert">
+      <div *ngIf="City.errors?.['required']"> </div>
+      <div class="alert alert-danger"> City is required.</div>
   </div>
+</div>
+  
   <div class="form-group">
     <label for="pincode">Pincode</label>
-    <input class="form-control" type="text" name="pincode" [(ngModel)]="customerData.address.pincode" />
+    <input 
+    class="form-control" 
+    type="text" 
+    name="pincode"
+    placeholder="Pincode"
+    [(ngModel)]="customerData.address.pincode" 
+    #pincode="ngModel"
+    required
+    />
+    <div *ngIf="myForm.submitted && pincode.invalid" class="alert">
+      <div *ngIf="pincode.errors?.['required']"> </div>
+      <div class="alert alert-danger"> pincode is required.</div>
   </div>
+</div>
+  
   <button type="submit" class="btn btn-primary"> Create account </button>
   <div *ngIf="createAccountStatus.status;else notvalid">
     <div class="alert alert-success">Form is submitted Admin will verify soon please check email for the Account number.</div>

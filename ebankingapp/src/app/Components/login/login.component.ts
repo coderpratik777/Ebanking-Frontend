@@ -30,18 +30,14 @@ mess!:any;
       const response = await this.postLoginRequest(logs);
       // Login successful
       this.logindetail=await response;
+      console.log(this.logindetail);
       if(this.logindetail.status==true){
                 localStorage.setItem('customerid',this.logindetail.customerid);
                 localStorage.setItem('username1',this.username);
                localStorage.setItem("Useractive","true");
                this.router.navigate(['/dashboard']);
-               console.log(this.logindetail);
-        
               }
-              else{
-                
-                console.log(this.logindetail);
-              }
+             
       return response;
     } catch (error) {
       // Login failed

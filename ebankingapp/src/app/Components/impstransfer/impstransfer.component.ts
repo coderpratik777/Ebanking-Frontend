@@ -73,9 +73,11 @@ export class ImpstransferComponent implements OnInit{
       this.http.post(url,this.transferData).subscribe((response)=>{
         console.log(response);
         this.transactionStatus=response;
+       if(this.transactionStatus.status){
         alert("money tranfered!");
         this.transactionService.setTransactionReceipt(this.transactionStatus);
         this.router.navigate(['/transactionreceipt']);
+       }
 
       
       })

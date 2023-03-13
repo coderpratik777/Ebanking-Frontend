@@ -1,6 +1,6 @@
 <div class="container">
-    <form #myform="ngForm">
-      <div class="heading">Initiate IMPS transfer</div>
+    <form #myform="ngForm" >
+      <div class="heading">Initiate RTGS transfer</div>
       <div class="form-group">
         <label for="fromaccount">From Account</label>
         <div>
@@ -14,10 +14,10 @@
           type="text"
           name="toaccount"
           [(ngModel)]="transferData.toAccount"
-          id="beneficiaries"
+          list="beneficiaries"
         />
-        <datalist id="beneficiaries" *ngFor="let i of beneficiaries">
-          <option value={{beneficiaries.name}}></option>
+        <datalist id="beneficiaries">
+          <option value={{beneficiary.accountNumber}} *ngFor="let beneficiary of beneficiaries">{{beneficiary.name}}</option>
         </datalist>
       </div>
       <div class="form-group">
@@ -29,7 +29,8 @@
           [(ngModel)]="transferData.amount"
           #amount="ngModel"
           required
-          max="4000"
+          min="4000"
+          max="10000"
         />
       </div>
       <div *ngIf="amount.invalid && (amount.touched || amount.dirty)" class="alert">
@@ -37,8 +38,11 @@
             Amount is required
         </div>
         <div class="alert alert-danger" *ngIf="amount.errors?.['max']">
-            PLease enter amount Below {{4000|currency:'INR'}}
+            PLease enter amount Below {{10000|currency:'INR'}}
         </div>
+        <div class="alert alert-danger" *ngIf="amount.errors?.['min']">
+          PLease enter amount Above {{4000|currency:'INR'}} or use IMPS mode for payment below {{4000|currency:'INR'}}
+      </div>
     
       </div>
       <div class="form-group">
@@ -73,6 +77,8 @@
         <div class="alert alert-danger"> Please Enter valid TPIN</div>
       </div>
       <button type="reset" class="btn btn-primary">Reset</button>
-      <button type="button" (click)="transaction()" class="btn btn-primary">Continue</button>
+      <button type="button" (click)="myform.valid && transaction()" class="btn btn-primary">Continue</button>
+      <!-- <div *ngIf="transactionStatus.status==false">
+        <div class="alert alert-danger">Balance is insuffiecient</div></div> -->
     </form>
     </div>

@@ -68,15 +68,20 @@ export class RtgstransferComponent implements OnInit {
     else if(this.pinStatus==3){
       console.log("transaction initiated");
       this.transferData.fromAccount=this.accountData.accountId;
-      let url=`http://localhost:8080/transaction`;
+      let url=`http://localhost:8080/transaction/rtgs`;
       console.log(this.transferData);
       this.http.post(url,this.transferData).subscribe((response)=>{
         console.log(response);
         this.transactionStatus=response;
-        alert("money tranfered!");
-        this.transactionService.setTransactionReceipt(this.transactionStatus);
-        this.router.navigate(['/transactionreceipt']);
-
+        if(this.transactionStatus.status){
+          alert("money tranfered!");
+          this.transactionService.setTransactionReceipt(this.transactionStatus);
+          this.router.navigate(['/transactionreceipt']);
+  
+        }
+        else{
+          alert("insufficient Balanace!!")
+        }
       
       })
 
